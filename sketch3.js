@@ -4,6 +4,7 @@ var song;
 var amp;
 var vol_hist = [];
 var viz;
+let mic;
 
 function setup() {
     createCanvas(320, 240);
@@ -13,6 +14,11 @@ function setup() {
     song = loadSound('example1.mp3', loaded);
     amp = new p5.Amplitude();
     fft = new p5.FFT();
+    mic = new p5.AudioIn();
+    mic.start();
+    amp = new p5.Amplitude();
+    amp.setInput(mic);
+
 }
 
 function loaded(){
